@@ -46,7 +46,7 @@ def main(args):
     y_test = test_df["price"].values
     X_test = test_df.drop("price", axis=1).values
     # Step 4: Initialize the RandomForest Regressor with specified hyperparameters, and train the model using the training data.  
-    model=RandomForestRegressor(n_estimators==args.n_estimators, max_depth=args.max_depth, random_state=42)
+    model=RandomForestRegressor(n_estimators=args.n_estimators, max_depth=args.max_depth, random_state=42)
     model.fit(X_train, y_train)
     # Step 5: Log model hyperparameters like 'n_estimators' and 'max_depth' for tracking purposes in MLflow.  
     mlflow.log_param("model", "RandomForestRegressor")
